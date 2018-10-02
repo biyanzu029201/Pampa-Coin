@@ -1,0 +1,26 @@
+# /etc/conf.d/pampad: config file for /etc/init.d/pampad
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/pampa/pampa.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/pampad"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/pampad.pid"
+
+# Where to write pampad data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/pampad"
+
+# User and group to own pampad process
+#BITCOIND_USER="pampa"
+#BITCOIND_GROUP="pampa"
+
+# Path to pampad executable
+#BITCOIND_BIN="/usr/bin/pampad"
+
+# Nice value to run pampad under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

@@ -1,0 +1,26 @@
+[Unit]
+Description=PAMPA's distributed currency daemon
+After=network.target
+
+[Service]
+User=pampa
+Group=pampa
+
+Type=forking
+PIDFile=/var/lib/pampad/pampad.pid
+
+ExecStart=/usr/bin/pampad -daemon -pid=/var/lib/pampad/pampad.pid \
+          -conf=/etc/pampa/pampa.conf -datadir=/var/lib/pampad
+
+ExecStop=-/usr/bin/pampa-cli -conf=/etc/pampa/pampa.conf \
+         -datadir=/var/lib/pampad stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
